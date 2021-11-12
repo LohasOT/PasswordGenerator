@@ -46,3 +46,11 @@ You are required to submit the following for review:
 
 - - -
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+
+## Description
+When pressed generate users will be prompted with how many characters from 8 to no more than 128.
+User will be prompted with what kind of characters, numbers, uppercase, and lowercase letters.
+
+## Link To Deployed Page
+
+https://lohasot.github.io/PasswordGenerator/

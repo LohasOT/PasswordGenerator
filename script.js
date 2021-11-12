@@ -2,23 +2,19 @@ character = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/
 
 number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 space = [];
 
-let choices;
-let toUpper = function (x) {
-  return x.toUpperCase();
-};
-
-alpha2 = alpha.map(toUpper);
 
 let get = document.querySelector("#generate");
 
 
 get.addEventListener("click", function () {
-  ps = generatePassword();
-  document.getElementById("password").placeholder = ps;
+  pass = generatePassword();
+  document.getElementById("password").placeholder = pass;
 });
 function generatePassword() {
 
@@ -47,38 +43,38 @@ function generatePassword() {
 
   else if (confirmCharacter && confirmNumber && confirmUppercase && confirmLowercase) {
 
-    choices = character.concat(number, alpha, alpha2);
+    choices = character.concat(number, lower, upper);
   }
 
   else if (confirmCharacter && confirmNumber && confirmUppercase) {
-    choices = character.concat(number, alpha2);
+    choices = character.concat(number, upper);
   }
   else if (confirmCharacter && confirmNumber && confirmLowercase) {
-    choices = character.concat(number, alpha);
+    choices = character.concat(number, upper);
   }
   else if (confirmCharacter && confirmLowercase && confirmUppercase) {
-    choices = character.concat(alpha, alpha2);
+    choices = character.concat(lower, upper);
   }
   else if (confirmNumber && confirmLowercase && confirmUppercase) {
-    choices = number.concat(alpha, alpha2);
+    choices = number.concat(lower, upper);
   }
   else if (confirmCharacter && confirmNumber) {
     choices = character.concat(number);
 
   } else if (confirmCharacter && confirmLowercase) {
-    choices = character.concat(alpha);
+    choices = character.concat(lower);
 
   } else if (confirmCharacter && confirmUppercase) {
-    choices = character.concat(alpha2);
+    choices = character.concat(upper);
   }
   else if (confirmLowercase && confirmNumber) {
-    choices = alpha.concat(number);
+    choices = lower.concat(number);
 
   } else if (confirmLowercase && confirmUppercase) {
-    choices = alpha.concat(alpha2);
+    choices = lower.concat(upper);
 
   } else if (confirmNumber && confirmUppercase) {
-    choices = number.concat(alpha2);
+    choices = number.concat(upper);
   }
   else if (confirmCharacter) {
     choices = character;
@@ -87,26 +83,26 @@ function generatePassword() {
     choices = number;
   }
   else if (confirmLowercase) {
-    choices = alpha;
+    choices = lower;
   }
 
   else if (confirmUppercase) {
-    choices = space.concat(alpha2);
+    choices = space.concat(upper);
   };
 
   let password = [];
 
   for (let i = 0; i < enter; i++) {
-    let pickChoices = choices[Math.floor(Math.random() * choices.length)];
-    password.push(pickChoices);
+    let yourchoices = choices[Math.floor(Math.random() * choices.length)];
+    password.push(yourchoices);
   }
 
-  let ps = password.join("");
-  UserInput(ps);
-  return ps;
+  let pass = password.join("");
+  UserInput(pass);
+  return pass;
 }
 
-function UserInput(ps) {
-  document.getElementById("password").textContent = ps;
+function UserInput(pass) {
+  document.getElementById("password").textContent = pass;
 
 }

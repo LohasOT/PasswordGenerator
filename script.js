@@ -29,64 +29,65 @@ function generatePassword() {
 
   } else {
 
-    confirmNumber = confirm("Numbers?");
-    confirmCharacter = confirm("Special Characters?");
-    confirmUppercase = confirm("Uppercase letters?");
-    confirmLowercase = confirm("Lowercase letters?");
+    yesnumber = confirm("Numbers?");
+    yeslowercase = confirm("Lowercase letters?");
+    yesuppercase = confirm("Uppercase letters?");
+    yescharacter = confirm("Special Characters?");
+
   };
 
 
-  if (!confirmCharacter && !confirmNumber && !confirmUppercase && !confirmLowercase) {
-    choices = alert("You must choose a criteria!");
+  if (!yescharacter && !yesnumber && !yesuppercase && !yeslowercase) {
+    choices = alert("You must choose a requirement");
 
   }
 
-  else if (confirmCharacter && confirmNumber && confirmUppercase && confirmLowercase) {
+  else if (yescharacter && yesnumber && yesuppercase && yeslowercase) {
 
     choices = character.concat(number, lower, upper);
   }
 
-  else if (confirmCharacter && confirmNumber && confirmUppercase) {
+  else if (yescharacter && yesnumber && yesuppercase) {
     choices = character.concat(number, upper);
   }
-  else if (confirmCharacter && confirmNumber && confirmLowercase) {
+  else if (yescharacter && yesnumber && yeslowercase) {
     choices = character.concat(number, upper);
   }
-  else if (confirmCharacter && confirmLowercase && confirmUppercase) {
+  else if (yescharacter && yeslowercase && yesuppercase) {
     choices = character.concat(lower, upper);
   }
-  else if (confirmNumber && confirmLowercase && confirmUppercase) {
+  else if (yesnumber && yeslowercase && yesuppercase) {
     choices = number.concat(lower, upper);
   }
-  else if (confirmCharacter && confirmNumber) {
+  else if (yescharacter && yesnumber) {
     choices = character.concat(number);
 
-  } else if (confirmCharacter && confirmLowercase) {
+  } else if (yescharacter && yeslowercase) {
     choices = character.concat(lower);
 
-  } else if (confirmCharacter && confirmUppercase) {
+  } else if (yescharacter && yesuppercase) {
     choices = character.concat(upper);
   }
-  else if (confirmLowercase && confirmNumber) {
+  else if (yeslowercase && yesnumber) {
     choices = lower.concat(number);
 
-  } else if (confirmLowercase && confirmUppercase) {
+  } else if (yeslowercase && yesuppercase) {
     choices = lower.concat(upper);
 
-  } else if (confirmNumber && confirmUppercase) {
+  } else if (yesnumber && yesuppercase) {
     choices = number.concat(upper);
   }
-  else if (confirmCharacter) {
+  else if (yescharacter) {
     choices = character;
   }
-  else if (confirmNumber) {
+  else if (yesnumber) {
     choices = number;
   }
-  else if (confirmLowercase) {
+  else if (yeslowercase) {
     choices = lower;
   }
 
-  else if (confirmUppercase) {
+  else if (yesuppercase) {
     choices = space.concat(upper);
   };
 
